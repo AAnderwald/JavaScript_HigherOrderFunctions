@@ -93,26 +93,36 @@ let jacket1 = {
     color: "blue",
     season: "Spring",
     size: "M",
+    outOfStyle: true,
+    price: 19.99
 };
 let jacket2 = {
     color: "black",
     season: "Winter",
     size: "L",
+    outOfStyle: true,
+    price: 79.99
 };
 let jacket3 = {
     color: "tan",
     season: "Summer",
     size: "XXL",
+    outOfStyle: false,
+    price: 69.99
 };
 let jacket4 = {
     color: "red",
     season: "Summer",
     size: "M",
+    outOfStyle: false, 
+    price: 39.99
 };
 let jacket5 = {
     color: "black",
     season: "W\winter",
     size: "S",
+    outOfStyle: true,        //boolean value
+    price: 500.99
 };
 
 const inventory = [];
@@ -136,5 +146,20 @@ let mediumJackets = inventory.reduce(function (acc, jacket) {       //acc = accu
 }, 0);
 
 console.log(mediumJackets);         //console will show 2
+
+// Remove the outOfStyle jackets. do not use a reduce method there are several ways
+const updatedInventory = inventory.filter (function (value) {        //filter is a method inside () is the function
+    return !value.outOfStyle                     //need to say false so ! give out of style so if its true it will be filtered out
+})
+
+console.log(updatedInventory);
+
+//update inventory based on price, show jackets below $60
+const updatedInventory = inventory.filter (function (value) {       
+    return value.price < 60            //value.price equates to that is true for jacket price 19    
+})
+
+console.log(updatedInventory);
+
 
 
